@@ -1,10 +1,21 @@
-<div *ngFor="let stock of stocks">
-  <div>
-    Company: {{stock.quote.companyName}}
-    Price: {{stock.quote.latestPrice}}
-    High: {{stock.quote.high}}
-    Low: {{stock.quote.low}}
-    Change: {{stock.quote.change}}
-    Change Percent: {{stock.quote.changePercent}}
+<div class="card-deck">
+  <div *ngFor="let stock of stocks" class="card text-center border-dark mb-3 col-sm-3" style="padding-right:0px;padding-left:0px;min-width:15rem;max-width:15rem;">
+    <!-- <div class="card-header mb-2 text-muted">{{stock.quote.symbol}}</div> -->
+    <div class="card-body text-dark">
+      <h5 class="card-title">{{stock.quote.companyName}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{stock.quote.symbol}}</h6>
+      <ul class="list-group list-group-flush small">
+        <li class="list-group-item">Price: &#36;{{stock.quote.latestPrice}}</li>
+        <li class="list-group-item">High: &#36;{{stock.quote.high}}</li>
+        <li class="list-group-item">Low: &#36;{{stock.quote.low}}</li>
+        <li *ngIf="stock.quote.change >= 0" class="list-group-item text-success">Change: &#43;{{stock.quote.change}}&#40;{{stock.quote.changePercent * 100 | number:'1.2-2'}} &#37;&#41;</li>
+        <li *ngIf="stock.quote.change < 0" class="list-group-item text-danger">Change: {{stock.quote.change}}&#40;{{stock.quote.changePercent * 100 | number:'1.2-2'}} &#37;&#41;</li>
+        <!-- <li class="list-group-item">Change Percent: </li> -->
+        <!-- <li class="list-group-item"><a href="#" class="btn btn-warning">Stop watching</a></li> -->
+      </ul>
+    </div>
+    <div class="card-footer text-muted">
+      <a href="#" class="btn btn-warning">Stop watching</a>
+    </div>
   </div>
 </div>
