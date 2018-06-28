@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { StockService } from './stock.service';
 import { StockComponent } from './stock/stock.component';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
-    StockComponent
+    StockComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,
